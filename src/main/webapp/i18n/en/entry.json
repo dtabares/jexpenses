@@ -2,7 +2,7 @@
     "jexpensesApp": {
         "entry" : {
             "home": {
-                "title": "Entrys",
+                "title": "Entries",
                 "createLabel": "Create a new Entry",
                 "createOrEditLabel": "Create or edit a Entry",
                 "search": "Search for Entry"
