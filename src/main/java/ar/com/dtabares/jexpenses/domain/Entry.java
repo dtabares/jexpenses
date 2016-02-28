@@ -2,6 +2,7 @@ package ar.com.dtabares.jexpenses.domain;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import java.time.LocalDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -34,6 +35,10 @@ public class Entry implements Serializable {
     @Size(max = 100)
     @Column(name = "comment", length = 100)
     private String comment;
+    
+    @NotNull
+    @Column(name = "date", nullable = false)
+    private LocalDate date;
     
     @OneToOne
     private Type type;
@@ -72,6 +77,14 @@ public class Entry implements Serializable {
     
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+    
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     public Type getType() {
@@ -117,6 +130,7 @@ public class Entry implements Serializable {
             ", name='" + name + "'" +
             ", amount='" + amount + "'" +
             ", comment='" + comment + "'" +
+            ", date='" + date + "'" +
             '}';
     }
 }

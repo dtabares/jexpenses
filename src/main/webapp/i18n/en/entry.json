@@ -19,6 +19,7 @@
             "name": "Name",
             "amount": "Amount",
             "comment": "Comment",
+            "date": "Date",
             "type": "Type",
             "user": "User"
         }

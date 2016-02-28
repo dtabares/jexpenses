@@ -1,5 +1,5 @@
 <div>
-    <h2 translate="jexpensesApp.entry.home.title">Entrys</h2>
+    <h2 translate="jexpensesApp.entry.home.title">Entries</h2>
     <jh-alert></jh-alert>
     <div class="container-fluid">
         <div class="row">
@@ -22,6 +22,7 @@
                     <th jh-sort-by="name"><span translate="jexpensesApp.entry.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="amount"><span translate="jexpensesApp.entry.amount">Amount</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="comment"><span translate="jexpensesApp.entry.comment">Comment</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date"><span translate="jexpensesApp.entry.date">Date</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="type.name"><span translate="jexpensesApp.entry.type">type</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="user.id"><span translate="jexpensesApp.entry.user">user</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
@@ -33,6 +34,7 @@
                     <td>{{entry.name}}</td>
                     <td>{{entry.amount}}</td>
                     <td>{{entry.comment}}</td>
+                        <td>{{entry.date | date:'mediumDate'}}</td>
                     <td>
                         <a ui-sref="type.detail({id:entry.type.id})">{{entry.type.name}}</a>
                     </td>

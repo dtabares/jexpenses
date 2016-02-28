@@ -31,6 +31,10 @@
             
             <column name="comment" type="varchar(100)"/>
             
+            <column name="date" type="date">
+                <constraints nullable="false" />
+            </column>
+            
             <column name="type_id" type="bigint">
                 <constraints unique="true"/>
             </column>

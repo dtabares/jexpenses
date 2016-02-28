@@ -64,6 +64,7 @@ angular.module('jexpensesApp')
                                     name: null,
                                     amount: null,
                                     comment: null,
+                                    date: null,
                                     id: null
                                 };
                             }

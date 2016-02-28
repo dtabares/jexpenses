@@ -57,6 +57,22 @@
                 </p>
             </div>
         </div>
+        <div class="form-group">
+            <label class="control-label" translate="jexpensesApp.entry.date" for="field_date">Date</label>
+                <div class="input-group">
+                    <input id="field_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="entry.date" is-open="datePickerForDate.status.opened"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="datePickerForDateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.date.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.date.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
 
         <div class="form-group">
             <label translate="jexpensesApp.entry.type" for="field_type">type</label>

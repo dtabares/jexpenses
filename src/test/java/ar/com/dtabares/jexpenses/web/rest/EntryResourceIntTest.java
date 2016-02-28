@@ -23,6 +23,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -48,6 +50,9 @@ public class EntryResourceIntTest {
     private static final Float UPDATED_AMOUNT = 2F;
     private static final String DEFAULT_COMMENT = "AAAAA";
     private static final String UPDATED_COMMENT = "BBBBB";
+
+    private static final LocalDate DEFAULT_DATE = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_DATE = LocalDate.now(ZoneId.systemDefault());
 
     @Inject
     private EntryRepository entryRepository;
@@ -78,6 +83,7 @@ public class EntryResourceIntTest {
         entry.setName(DEFAULT_NAME);
         entry.setAmount(DEFAULT_AMOUNT);
         entry.setComment(DEFAULT_COMMENT);
+        entry.setDate(DEFAULT_DATE);
     }
 
     @Test
@@ -99,6 +105,7 @@ public class EntryResourceIntTest {
         assertThat(testEntry.getName()).isEqualTo(DEFAULT_NAME);
         assertThat(testEntry.getAmount()).isEqualTo(DEFAULT_AMOUNT);
         assertThat(testEntry.getComment()).isEqualTo(DEFAULT_COMMENT);
+        assertThat(testEntry.getDate()).isEqualTo(DEFAULT_DATE);
     }
 
     @Test
@@ -139,6 +146,24 @@ public class EntryResourceIntTest {
 
     @Test
     @Transactional
+    public void checkDateIsRequired() throws Exception {
+        int databaseSizeBeforeTest = entryRepository.findAll().size();
+        // set the field null
+        entry.setDate(null);
+
+        // Create the Entry, which fails.
+
+        restEntryMockMvc.perform(post("/api/entrys")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(entry)))
+                .andExpect(status().isBadRequest());
+
+        List<Entry> entrys = entryRepository.findAll();
+        assertThat(entrys).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllEntrys() throws Exception {
         // Initialize the database
         entryRepository.saveAndFlush(entry);
@@ -150,7 +175,8 @@ public class EntryResourceIntTest {
                 .andExpect(jsonPath("$.[*].id").value(hasItem(entry.getId().intValue())))
                 .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
                 .andExpect(jsonPath("$.[*].amount").value(hasItem(DEFAULT_AMOUNT.doubleValue())))
-                .andExpect(jsonPath("$.[*].comment").value(hasItem(DEFAULT_COMMENT.toString())));
+                .andExpect(jsonPath("$.[*].comment").value(hasItem(DEFAULT_COMMENT.toString())))
+                .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())));
     }
 
     @Test
@@ -166,7 +192,8 @@ public class EntryResourceIntTest {
             .andExpect(jsonPath("$.id").value(entry.getId().intValue()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
             .andExpect(jsonPath("$.amount").value(DEFAULT_AMOUNT.doubleValue()))
-            .andExpect(jsonPath("$.comment").value(DEFAULT_COMMENT.toString()));
+            .andExpect(jsonPath("$.comment").value(DEFAULT_COMMENT.toString()))
+            .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()));
     }
 
     @Test
@@ -189,6 +216,7 @@ public class EntryResourceIntTest {
         entry.setName(UPDATED_NAME);
         entry.setAmount(UPDATED_AMOUNT);
         entry.setComment(UPDATED_COMMENT);
+        entry.setDate(UPDATED_DATE);
 
         restEntryMockMvc.perform(put("/api/entrys")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -202,6 +230,7 @@ public class EntryResourceIntTest {
         assertThat(testEntry.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testEntry.getAmount()).isEqualTo(UPDATED_AMOUNT);
         assertThat(testEntry.getComment()).isEqualTo(UPDATED_COMMENT);
+        assertThat(testEntry.getDate()).isEqualTo(UPDATED_DATE);
     }
 
     @Test
