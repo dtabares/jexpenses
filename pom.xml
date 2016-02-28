@@ -597,7 +597,7 @@
                     <driver>org.h2.Driver</driver>
                     <url>jdbc:h2:file:./target/h2db/db/jexpenses</url>
                     <defaultSchemaName></defaultSchemaName>
-                    <username></username>
+                    <username>jexpenses</username>
                     <password></password>
                     <referenceUrl>hibernate:spring:ar.com.dtabares.jexpenses.domain?dialect=org.hibernate.dialect.H2Dialect</referenceUrl>
                     <verbose>true</verbose>
