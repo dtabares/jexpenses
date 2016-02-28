@@ -18,19 +18,17 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr jh-sort="predicate" ascending="reverse" callback="reset()">
-                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="name"><span translate="jexpensesApp.entry.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="amount"><span translate="jexpensesApp.entry.amount">Amount</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="comment"><span translate="jexpensesApp.entry.comment">Comment</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="date"><span translate="jexpensesApp.entry.date">Date</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="type.name"><span translate="jexpensesApp.entry.type">type</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="user.id"><span translate="jexpensesApp.entry.user">user</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="user.login"><span translate="jexpensesApp.entry.user">user</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody infinite-scroll="loadPage(page + 1)" infinite-scroll-disabled="links['last'] == page">
                 <tr ng-repeat="entry in entrys track by entry.id">
-                    <td><a ui-sref="entry.detail({id:entry.id})">{{entry.id}}</a></td>
                     <td>{{entry.name}}</td>
                     <td>{{entry.amount}}</td>
                     <td>{{entry.comment}}</td>
@@ -39,7 +37,7 @@
                         <a ui-sref="type.detail({id:entry.type.id})">{{entry.type.name}}</a>
                     </td>
                     <td>
-                        {{entry.user.id}}
+                        {{entry.user.login}}
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
