@@ -1,0 +1,24 @@
+{
+    "jexpensesApp": {
+        "prefix" : {
+            "home": {
+                "title": "Prefixs",
+                "createLabel": "Créer un nouveau Prefix",
+                "createOrEditLabel": "Créer ou éditer un Prefix",
+                "search": "Search for Prefix"
+            },
+            "created": "Un nouveau Prefix a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Prefix avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Prefix avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Prefix {{ id }} ?"
+            },
+            "detail": {
+                "title": "Prefix"
+            },
+            "prefix": "Prefix",
+            "user": "User"
+        }
+    }
+}
+

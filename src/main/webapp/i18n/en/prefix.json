@@ -1,0 +1,23 @@
+{
+    "jexpensesApp": {
+        "prefix" : {
+            "home": {
+                "title": "Prefixs",
+                "createLabel": "Create a new Prefix",
+                "createOrEditLabel": "Create or edit a Prefix",
+                "search": "Search for Prefix"
+            },
+            "created": "A new Prefix is created with identifier {{ param }}",
+            "updated": "A Prefix is updated with identifier {{ param }}",
+            "deleted": "A Prefix is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Prefix {{ id }}?"
+            },
+            "detail": {
+                "title": "Prefix"
+            },
+            "prefix": "Prefix",
+            "user": "User"
+        }
+    }
+}

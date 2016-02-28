@@ -1,0 +1,27 @@
+{
+    "jexpensesApp": {
+        "entry" : {
+            "home": {
+                "title": "Entrys",
+                "createLabel": "Créer un nouveau Entry",
+                "createOrEditLabel": "Créer ou éditer un Entry",
+                "search": "Search for Entry"
+            },
+            "created": "Un nouveau Entry a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Entry avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Entry avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Entry {{ id }} ?"
+            },
+            "detail": {
+                "title": "Entry"
+            },
+            "name": "Name",
+            "amount": "Amount",
+            "comment": "Comment",
+            "type": "Type",
+            "user": "User"
+        }
+    }
+}
+

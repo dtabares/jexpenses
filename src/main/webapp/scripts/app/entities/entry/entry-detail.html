@@ -1,0 +1,62 @@
+
+<div>
+    <h2><span translate="jexpensesApp.entry.detail.title">Entry</span> {{entry.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th translate="entity.detail.field">Field</th>
+                <th translate="entity.detail.value">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span translate="jexpensesApp.entry.name">Name</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{entry.name}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="jexpensesApp.entry.amount">Amount</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{entry.amount}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="jexpensesApp.entry.comment">Comment</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{entry.comment}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="jexpensesApp.entry.type">type</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="type.detail({id:entry.type.id})">{{entry.type.name}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="jexpensesApp.entry.user">user</span>
+                </td>
+                <td>
+                    {{entry.user.id}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>
