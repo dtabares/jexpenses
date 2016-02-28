@@ -1,0 +1,25 @@
+{
+  "generator-jhipster": {
+    "baseName": "jexpenses",
+    "packageName": "ar.com.dtabares.jexpenses",
+    "packageFolder": "ar/com/dtabares/jexpenses",
+    "authenticationType": "session",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "no",
+    "useSass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "enableTranslation": true,
+    "enableSocialSignIn": true,
+    "rememberMeKey": "363872a8bf27c75584a939e8e17d7e7cc100ed0c",
+    "testFrameworks": [
+      "cucumber",
+      "protractor"
+    ]
+  }
+}
